@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# Local database and environment files
+db.sqlite3
+*.sqlite3
+.env
+
+# Django/static noise
+staticfiles/
+
+# IDE/editor
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
