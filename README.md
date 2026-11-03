@@ -1,107 +1,58 @@
-<h1 align="center">Weather Forecast Project</h1>
+# Weather Forecast Application
 
-<p align="center">
-  <b>A Django web application for weather forecasting and data visualization</b>
-</p>
+A Django-based web application for displaying weather information and presenting weather data through a simple browser interface.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-</p>
+## Features described by the application
 
----
+- Search weather information by city.
+- Display current weather conditions.
+- Present weather data with charts or visual summaries.
+- Responsive page layout for desktop and mobile screens.
 
-## Overview
+## Technology
 
-A Django-based weather application that provides forecast data display with a user-friendly interface. Built as a full-stack web application using Django's MVC architecture.
+- Python
+- Django
+- HTML and CSS
+- JavaScript
 
-### Features
-
-| Feature | Description |
-|---------|-------------|
-| 🌤️ Weather Display | Current weather conditions |
-| 📊 Data Visualization | Weather data charts and graphs |
-| 🔍 City Search | Search weather by location |
-| 📱 Responsive Design | Works on desktop and mobile |
-
----
-
-## Quick Start
-
-### 1. Clone the repository
+## Run locally
 
 ```bash
 git clone https://github.com/HiiAliasgar/weatherProject.git
 cd weatherProject
-```
 
-### 2. Create virtual environment
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+# source .venv/bin/activate
 
-```bash
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```bash
 pip install django
-```
-
-### 4. Run migrations
-
-```bash
 python manage.py migrate
-```
-
-### 5. Start the server
-
-```bash
 python manage.py runserver
 ```
 
-Open http://localhost:8000 in your browser.
+Open `http://127.0.0.1:8000`.
 
----
+Install any additional dependencies required by the current application code before running it. If the project uses an external weather-data provider, configure its credentials according to the source code and keep them out of version control.
 
-## Project Structure
+## Project layout
 
-```
+```text
 weatherProject/
-├── forecast/           # Main app directory
-│   ├── views.py       # View logic
-│   ├── urls.py        # URL routing
-│   ├── models.py      # Data models
-│   └── templates/     # HTML templates
-├── weatherProject/    # Project settings
-│   ├── settings.py    # Django settings
-│   └── urls.py        # Root URL config
-├── manage.py          # Django CLI
-├── weather.csv        # Weather data
-└── .gitignore         # Git ignore rules
+├── forecast/             # Main Django application
+│   ├── views.py
+│   ├── urls.py
+│   ├── models.py
+│   └── templates/
+├── weatherProject/       # Django project configuration
+├── manage.py
+└── weather.csv           # Project data
 ```
 
----
+## Scope
 
-## Tech Stack
+This repository is a learning project for Django-based web development and weather-data presentation. Check the current source and configuration before assuming a live deployment or a specific external data provider.
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Core language |
-| Django | Web framework |
-| HTML/CSS | Frontend templates |
-| JavaScript | Interactive features |
-
----
-
-## Author
-
-**Aliasgar Lohawala** - [@HiiAliasgar](https://github.com/HiiAliasgar)
-
----
-
-<p align="center">
-  Made with ❤️ and Django
-</p>
+[Source code](https://github.com/HiiAliasgar/weatherProject)
