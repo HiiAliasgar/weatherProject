@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote, urlencode
@@ -13,7 +14,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 
-API_KEY = "4124bace8c6a65968a953ca5cf595296"
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast"
 COUNTRY_LOOKUP_URL = "https://restcountries.com/v3.1/name"
@@ -89,8 +89,16 @@ def resolve_location_query(city):
     return query
 
 
+def get_api_key():
+    """Return the OpenWeather key from the environment or fail clearly."""
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENWEATHER_API_KEY is not configured.")
+    return api_key
+
+
 def get_current_weather(city):
-    params = urlencode({"q": city, "appid": API_KEY, "units": "metric"})
+    params = urlencode({"q": city, "appid": get_api_key(), "units": "metric"})
 
     with urlopen(f"{BASE_URL}?{params}", timeout=10) as response:
         data = json.loads(response.read().decode("utf-8"))
@@ -120,7 +128,7 @@ def get_current_weather(city):
 
 def get_hourly_forecast(lat, lon, timezone_offset=0, count=5):
     params = urlencode(
-        {"lat": lat, "lon": lon, "appid": API_KEY, "units": "metric", "cnt": count}
+        {"lat": lat, "lon": lon, "appid": get_api_key(), "units": "metric", "cnt": count}
     )
 
     with urlopen(f"{FORECAST_URL}?{params}", timeout=10) as response:
